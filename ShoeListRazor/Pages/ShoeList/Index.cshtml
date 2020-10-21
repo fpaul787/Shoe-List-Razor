@@ -9,5 +9,48 @@
     <div class="col-3">
         <a class="btn btn-info form-control text-white">Create New Shoe</a>
     </div>
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if (Model.Shoes.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Shoes.FirstOrDefault().Name"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Shoes.FirstOrDefault().Brand"></label>
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.Shoes)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Brand)
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                                <a class="btn btn-success btn-sm text-white">Edit</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>No shoes available</p>
+            }
+        </form>
+    </div>
 </div>
 
