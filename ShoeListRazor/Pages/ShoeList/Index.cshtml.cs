@@ -20,7 +20,7 @@ namespace ShoeListRazor.Pages.ShoeList
 
         public IEnumerable<Shoe> Shoes { get; set; }
 
-        public async void OnGet()
+        public async Task OnGet()
         {
             // going to database and receing all of the shoes
             Shoes = await _db.Shoe.ToListAsync();
