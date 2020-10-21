@@ -15,5 +15,7 @@ namespace ShoeListRazor.Model
         public string Name { get; set; }
 
         public string Brand { get; set; }
+
+        public string ISBN { get; set; }
     }
 }
