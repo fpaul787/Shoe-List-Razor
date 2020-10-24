@@ -17,10 +17,26 @@ namespace ShoeListRazor.Pages.ShoeList
             _db = db;
         }
 
+        [BindProperty]
         public Shoe Shoe { get; set; }
+        
         public void OnGet()
         {
 
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            if(ModelState.IsValid)
+            {
+                await _db.Shoe.AddAsync(Shoe);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            else
+            {
+                return Page();
+            }
         }
     }
 }
