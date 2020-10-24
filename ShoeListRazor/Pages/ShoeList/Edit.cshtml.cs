@@ -15,7 +15,7 @@ namespace ShoeListRazor.Pages.ShoeList
 
         public EditModel(ApplicationDbContext db)
         {
-            
+            _db = db;
         }
 
         [BindProperty]
