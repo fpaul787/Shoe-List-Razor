@@ -25,5 +25,21 @@ namespace ShoeListRazor.Pages.ShoeList
         {
             Shoe = await _db.Shoe.FindAsync(id);
         }
+
+        public async Task<IActionResult> OnPost()
+        {
+            if(ModelState.IsValid)
+            {
+                var ShoeFromDb = await _db.Shoe.FindAsync(Shoe.Id);
+                ShoeFromDb.Name = Shoe.Name;
+                ShoeFromDb.ISBN = Shoe.ISBN;
+                ShoeFromDb.Brand = Shoe.Brand;
+
+                await _db.SaveChangesAsync();
+
+                return RedirectToPage("Index");
+            }
+            return RedirectToPage();
+        }
     }
 }
