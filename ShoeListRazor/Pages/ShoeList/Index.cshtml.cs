@@ -25,5 +25,18 @@ namespace ShoeListRazor.Pages.ShoeList
             // going to database and receing all of the shoes
             Shoes = await _db.Shoe.ToListAsync();
         }
+
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            var shoe = await _db.Shoe.FindAsync(id);
+            if(shoe == null)
+            {
+                return NotFound();
+            }
+            _db.Shoe.Remove(shoe);
+            await _db.SaveChangesAsync();
+
+            return RedirectToPage("Index");
+        }
     }
 }
