@@ -13,18 +13,18 @@ function loadDataTable() {
         },
         "columns": [
             { "data": "name", "width": "30%" },
-            { "data": "brand", "width": "30%" },
-            { "data": "isbn", "width": "30%" },
+            { "data": "brand", "width": "20%" },
+            { "data": "isbn", "width": "20%" },
             {
                 "data": "id",
                 "render": function (data) {
                     return `
                         <div class="text-center">
-                            <a href="/ShoeList/Edit?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
+                            <a href="/ShoeList/Edit?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:70px;'>
                                 Edit
                             </a>
                             &nbsp;
-                            <a class='btn btn-danger text-white' style='cursor:pointer; width:100px;'>
+                            <a class='btn btn-danger text-white' style='cursor:pointer; width:70px;'>
                                 Delete
                             </a>
                         </div>
