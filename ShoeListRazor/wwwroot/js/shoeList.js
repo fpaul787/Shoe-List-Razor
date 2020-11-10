@@ -5,9 +5,9 @@ $(document).ready(function () {
 });
 
 function loadDataTable() {
-    dataTable = $('#DT_LOAD').DataTable({
+    dataTable = $('#DT_load').DataTable({
         "ajax": {
-            "url": "/api/book",
+            "url": "/api/shoe",
             "type": "GET",
             "datatype": "json"
         },
@@ -20,13 +20,21 @@ function loadDataTable() {
                 "render": function (data) {
                     return `
                         <div class="text-center">
-                            <a href="/ShoeList/Edit?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px'>
+                            <a href="/ShoeList/Edit?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
                                 Edit
                             </a>
+                            &nbsp;
+                            <a class='btn btn-danger text-white' style='cursor:pointer; width:100px;'>
+                                Delete
+                            </a>
                         </div>
-                    `
-                }
+                    `;
+                }, "width": "30%"
             }
-        ]
-    })
+        ],
+        "language": {
+            "emptyTable": "no data found"
+        },
+        "width": "100%"
+    });
 }
