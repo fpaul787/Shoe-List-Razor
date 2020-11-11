@@ -55,7 +55,7 @@ namespace ShoeListRazor.Pages.ShoeList
                 // save changes
                 await _db.SaveChangesAsync();
 
-                return RedirectToPage("Index")
+                return RedirectToPage("Index");
             }
 
             return RedirectToPage();
